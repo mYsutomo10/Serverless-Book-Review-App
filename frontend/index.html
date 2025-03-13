@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Review App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Book Review App</h1>
+    <div class="auth-buttons">
+      <button id="loginBtn" class="btn">Login</button>
+      <button id="registerBtn" class="btn">Register</button>
+      <button id="logoutBtn" class="btn hidden">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="review-form-container hidden">
+      <h2>Add a Book Review</h2>
+      <form id="reviewForm">
+        <div class="form-group">
+          <label for="bookTitle">Book Title</label>
+          <input type="text" id="bookTitle" required>
+        </div>
+        <div class="form-group">
+          <label for="authorName">Author Name</label>
+          <input type="text" id="authorName" required>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating (1-5)</label>
+          <input type="number" id="rating" min="1" max="5" required>
+        </div>
+        <div class="form-group">
+          <label for="reviewText">Your Review</label>
+          <textarea id="reviewText" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
+    </section>
+
+    <section class="reviews-list">
+      <h2>Book Reviews</h2>
+      <div id="reviewsList"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@5.2.10/dist/amazon-cognito-identity.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
