@@ -1,0 +1,38 @@
+{
+    "name": "serverless-book-review-app",
+    "version": "1.0.0",
+    "description": "Serverless Book Review Application",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest",
+      "deploy": "serverless deploy",
+      "deploy:prod": "serverless deploy --stage prod",
+      "start": "serverless offline start",
+      "dynamodb:install": "serverless dynamodb install",
+      "dynamodb:start": "serverless dynamodb start",
+      "frontend:update-config": "node scripts/update-frontend-config.js",
+      "frontend:deploy": "aws s3 sync ./frontend s3://$(serverless output get --name WebsiteBucketName)",
+      "deploy:all": "npm run deploy && npm run frontend:update-config && npm run frontend:deploy"
+    },
+    "keywords": [
+      "serverless",
+      "aws",
+      "lambda",
+      "api-gateway",
+      "dynamodb"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+      "aws-sdk": "^2.1188.0",
+      "aws-xray-sdk": "^3.3.8",
+      "joi": "^17.6.0",
+      "nanoid": "^3.3.4"
+    },
+    "devDependencies": {
+      "jest": "^28.1.3",
+      "serverless": "^3.21.0",
+      "serverless-dynamodb-local": "^0.2.40",
+      "serverless-offline": "^9.2.0"
+    }
+  }
